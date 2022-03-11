@@ -120,21 +120,27 @@ class PrintManager
         switch (PrintContent.getContentType(content, context))
         {
             case IMAGE:
+                System.out.printf("IMAGE");
                 printImage(content, settings, callback);
                 break;
             case PDF:
+                System.out.printf("PDF");
                 printPdf(content, settings, callback);
                 break;
             case HTML:
                 if (content == null || content.isEmpty()) {
+                 System.out.printf("Web View");
                     printWebView(view, settings, callback);
                 } else {
+                 System.out.printf("HTML");
                     printHtml(content, settings, callback);
                 }
                 break;
             case UNSUPPORTED:
+          System.out.printf("UnSupported");
                 // TODO unsupported content
             case PLAIN:
+                System.out.printf("PLAIN");
                 printText(content, settings, callback);
         }
     }
